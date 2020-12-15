@@ -24,7 +24,7 @@ public class PendingTransfersMenu implements Menu{
 		PendingTransfer transfer = null;
 		String userInput = null;
 		
-		results =  fs.showTransfers(session.getAccount().getUserID());
+		results =  fs.showTransfers(session.getAccount().getUsername());
 		for(PendingTransfer t: results) {
 			
 			
@@ -56,7 +56,7 @@ public class PendingTransfersMenu implements Menu{
 		if(transfer == null) {
 			System.out.println("Please enter a valid transfer ID.");
 		}
-		else if(session.getAccount().getUserID().equals(transfer.getSender())) {
+		else if(session.getAccount().getUsername().equals(transfer.getSender())) {
 			System.out.println("Do you wish to cancel this transfer? Enter C to cancel, or any other key to return to other pending transfers.");
 			userInput = scanner.nextLine();
 			if(userInput.toLowerCase().equals("c")) {
@@ -65,7 +65,7 @@ public class PendingTransfersMenu implements Menu{
 			}
 		}
 		
-		else if(session.getAccount().getUserID().equals(transfer.getReceiver())) {
+		else if(session.getAccount().getUsername().equals(transfer.getReceiver())) {
 			System.out.println("Do you wish to accept this transfer? Enter A to accept, D to decline, or any other key to return to other pending transfers.");
 			userInput = scanner.nextLine();
 			if(userInput.toLowerCase().equals("d")) {

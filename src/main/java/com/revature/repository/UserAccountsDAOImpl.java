@@ -113,7 +113,7 @@ public class UserAccountsDAOImpl implements UserAccountsDAO{
 	
 	
 	public boolean createAccount(UserAccount account) throws DuplicateEntryException{
-		String userID = account.getUserID();
+		String userID = account.getUsername();
 		String firstName = account.getFirstName();
 		String lastName = account.getLastName();
 		String pin = account.getPin();
@@ -155,7 +155,7 @@ public class UserAccountsDAOImpl implements UserAccountsDAO{
 	}
 	
 	public boolean withdraw(UserAccount account, double amount) throws InvalidAccountException{
-		String userID = account.getUserID();
+		String userID = account.getUsername();
 		return this.withdraw(userID, amount);
 	}
 
@@ -187,7 +187,7 @@ public class UserAccountsDAOImpl implements UserAccountsDAO{
 	}
 	
 	public boolean deposit(UserAccount account, double amount) throws InvalidAccountException{
-		String userID = account.getUserID();
+		String userID = account.getUsername();
 		return this.deposit(userID, amount);
 		
 	}

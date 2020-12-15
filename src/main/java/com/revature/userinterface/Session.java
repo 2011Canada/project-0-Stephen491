@@ -28,7 +28,7 @@ public class Session {
 	
 	public void setAccount(UserAccount account) {
 		this.account = account;
-		username = account.getUserID();
+		username = account.getUsername();
 		firstName = account.getFirstName();
 		lastName = account.getLastName();
 	}

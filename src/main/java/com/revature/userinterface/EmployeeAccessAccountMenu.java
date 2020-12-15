@@ -26,7 +26,7 @@ public class EmployeeAccessAccountMenu implements Menu {
 		account = ac.getAccount(username);
 		if(account!= null) {
 			//System.out.println("Account ID: "+t.getPendingAccountID());
-			System.out.println("Username: "+account.getUserID());
+			System.out.println("Username: "+account.getUsername());
 			System.out.println("First name: "+account.getFirstName());
 			System.out.println("Last name: "+account.getLastName());
 			System.out.println("Balance: "+account.getBalance());

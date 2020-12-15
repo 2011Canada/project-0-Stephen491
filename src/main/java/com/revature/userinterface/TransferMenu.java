@@ -18,7 +18,7 @@ public class TransferMenu implements Menu {
 	
 	
 	public Session display(Session session) {
-		user1 = session.getAccount().getUserID();
+		user1 = session.getAccount().getUsername();
 		
 		System.out.println("Please enter the username of the user you wish to transfer funds to.");
 		user2 = scanner.nextLine();

@@ -47,7 +47,7 @@ public class PendingAccountsDAOPostgresImpl implements PendingAccountsDAO{
 	
 	public boolean createPendingAccount(UserAccount account) throws DuplicateEntryException {
 		// TODO Auto-generated method stub
-		String userid = account.getUserID();
+		String userid = account.getUsername();
 		String lastname = account.getLastName();
 		String firstname = account.getFirstName();
 		String password = account.getPin();

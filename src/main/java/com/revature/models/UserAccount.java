@@ -2,7 +2,7 @@ package com.revature.models;
 
 public class UserAccount {
 	
-	private String userID; 
+	private String username; 
 	private String firstName;
 	private String lastName;
 	private String pin;
@@ -12,9 +12,9 @@ public class UserAccount {
 	
 	
 	
-	public UserAccount(String userID, String firstName, String lastName, String pin, double balance, boolean isEmployee) {
+	public UserAccount(String username, String firstName, String lastName, String pin, double balance, boolean isEmployee) {
 		super();
-		this.userID = userID;
+		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.pin = pin;
@@ -24,11 +24,11 @@ public class UserAccount {
 
 
 
-	public String getUserID() {
-		return userID;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	

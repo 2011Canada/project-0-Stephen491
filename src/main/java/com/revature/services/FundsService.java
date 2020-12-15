@@ -34,14 +34,14 @@ public class FundsService {
 	public void withdraw(UserAccount account, double amount) {
 		double balance = 0;
 		try {
-			balance = userAccountDAO.getBalance(account.getUserID());
+			balance = userAccountDAO.getBalance(account.getUsername());
 			
 			
 			if(amount>balance) {
 				System.out.println("Amount to withdraw exceeds your balance.");
 			}
 			else {
-				if(userAccountDAO.withdraw(account.getUserID(), amount)&&transactionsDAO.addTransactionToHistory(account.getUserID(), null, amount, 2)) {
+				if(userAccountDAO.withdraw(account.getUsername(), amount)&&transactionsDAO.addTransactionToHistory(account.getUsername(), null, amount, 2)) {
 					System.out.println("$"+amount+" has been successfully withdrawn from your account.");
 					
 					//make a call to transactionsdao to insert into transaction history
@@ -54,11 +54,12 @@ public class FundsService {
 		}
 			
 	}
-			
+	
+	
 	
 	public void deposit(UserAccount account, double amount) {
 		try {
-			if(userAccountDAO.deposit(account.getUserID(), amount)&&transactionsDAO.addTransactionToHistory(null, account.getUserID(), amount, 1)) {
+			if(userAccountDAO.deposit(account.getUsername(), amount)&&transactionsDAO.addTransactionToHistory(null, account.getUsername(), amount, 1)) {
 				System.out.println("$"+amount+" has been successfully deposited to your account.");
 				
 			}
@@ -72,7 +73,7 @@ public class FundsService {
 	public void getBalance(UserAccount account) {
 		double balance = 0;
 		try {
-			balance = userAccountDAO.getBalance(account.getUserID());
+			balance = userAccountDAO.getBalance(account.getUsername());
 			System.out.println("Your current balance is $"+balance+",");
 		}
 		catch(InvalidAccountException e) {
@@ -81,6 +82,18 @@ public class FundsService {
 		}
 		
 		
+	}
+	
+	public void getBalance(String username) {
+		double balance = 0;
+		try {
+			balance = userAccountDAO.getBalance(username);
+			System.out.println("Your current balance is $"+balance+",");
+		}
+		catch(InvalidAccountException e) {
+			System.out.println(e);
+			return ;
+		}
 	}
 	public void transferFunds(PendingTransfer pendingTransfer) {
 		try {

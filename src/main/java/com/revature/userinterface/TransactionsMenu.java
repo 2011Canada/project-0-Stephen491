@@ -16,7 +16,7 @@ public class TransactionsMenu implements Menu{
 	
 	
 	public Session display(Session session) {
-		fs.showTransactionHistory(session.getAccount().getUserID());
+		fs.showTransactionHistory(session.getAccount().getUsername());
 		return session;
 	}	
 	public void resetMenu() {
