@@ -1,5 +1,6 @@
 package com.revature.userinterface;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.revature.services.FundsService;
@@ -22,8 +23,14 @@ public class TransferMenu implements Menu {
 		
 		System.out.println("Please enter the username of the user you wish to transfer funds to.");
 		user2 = scanner.nextLine();
-		System.out.println("Please enter the amount you wish to transfer.");
-		amount = scanner.nextDouble();
+		System.out.println("Please enter the amount you wish to transfer, or enter a non-digit to cancel and exit.");
+		
+		try {
+			amount = scanner.nextDouble();
+		}
+		catch(InputMismatchException e) {
+			return session;
+		}
 		
 		fs.addToPendingTransfers(user1, user2, amount);
 		

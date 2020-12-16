@@ -36,6 +36,7 @@ public class FundsServiceTest {
 		  fs.withdraw(account, balance+1);
 		  String outputReceived = os.toString().trim();
 		  assertEquals(error, outputReceived);
+		  assertEquals(balance, ad.getBalance("testAccount"));
 		  System.setOut(oldout);
 		  
 		}

@@ -36,10 +36,12 @@ public class MainInterface {
 				validLogin = currentSession.getLoginType();
 				if(validLogin==1) {
 					account = loginMenu.getAccount();
+					
 					//show options
 					while(initChoice==1) {
 					bankOptionsMenu.display(currentSession);
 					bankOptionsChoice = currentSession.getBankOption();
+					
 						if(bankOptionsChoice==1) {
 							depositMenu = new DepositMenu();
 							depositMenu.display(currentSession);
@@ -103,6 +105,7 @@ public class MainInterface {
 				}//if validLogin is 1 or regular user
 				else if(validLogin==2) {
 					//show employee options
+					
 					account = loginMenu.getAccount();
 					while(initChoice==1) {
 						employeeMenu.display(currentSession);
@@ -135,7 +138,7 @@ public class MainInterface {
 						else if(employeeOptionsChoice==4) {
 							//logout
 							initChoice = 0;
-							bankOptionsMenu.resetMenu();
+							employeeMenu.resetMenu();
 							loginMenu.resetMenu();
 							initMenu.resetMenu();
 							currentSession.logout();

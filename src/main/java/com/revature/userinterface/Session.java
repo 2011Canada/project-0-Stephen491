@@ -23,6 +23,7 @@ public class Session {
 		isLoggedIn = false;
 		initOption = 0;
 		bankOption = 0;
+		employeeOption = 0;
 	}
 	
 	
@@ -46,6 +47,7 @@ public class Session {
 		initOption = 0;
 		loginType = 0;
 		bankOption = 0;
+		employeeOption = 0;
 	}
 	
 	public int getEmployeeOption() {
